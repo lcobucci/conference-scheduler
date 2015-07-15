@@ -10,7 +10,7 @@ define(
             menuItems.add(new Item(item));
         });
         
-        channel.reply('menu:activate', function() {
+        channel.reply('menu:update', function() {
             var page = Backbone.history.getFragment();
             var item = menuItems.findWhere({href: ('/' + page).split('/', 2).join('/')});
             var activeItem = menuItems.findWhere({active: true});

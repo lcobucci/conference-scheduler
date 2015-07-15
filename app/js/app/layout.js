@@ -36,7 +36,7 @@ define(['backbone', 'underscore', 'text!./layout.html'], function(Backbone, _, t
             Backbone.history.navigate(this.ui.home.attr('href'));
             
             Backbone.Radio.channel('home').request('render');
-            Backbone.Radio.channel('rendering').request('menu:activate');
+            Backbone.Radio.channel('rendering').request('menu:update');
         }
     });
 });

@@ -5,7 +5,7 @@ define(['marionette', 'backbone', 'bootstrap', 'backbone.localStorage'], functio
     
     scheduler.on('start', function() {
         Backbone.history.start();
-        Backbone.Radio.channel('rendering').request('menu:activate');
+        Backbone.Radio.channel('rendering').request('menu:update');
     });
     
     return scheduler;
