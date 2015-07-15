@@ -1,0 +1,15 @@
+{
+  "name": "agile-brazil-scheduler",
+  "version": "1.0.0",
+  "dependencies": {
+    "underscore": "~1.8",
+    "backbone": "~1.2.*",
+    "jquery": "~2.*.*",
+    "requirejs": "~2.*.*",
+    "requirejs-text": "~2.*.*",
+    "bootstrap": "~3.3",
+    "marionette": "~2.4.2",
+    "backbone.radio": "~1.0.0",
+    "Backbone.localStorage": "~1.1.16"
+  }
+}
