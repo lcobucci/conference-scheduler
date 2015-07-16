@@ -3,6 +3,7 @@ define(['backbone', './event'], function(Backbone, Event) {
     
     return Backbone.Collection.extend({
         localStorage: new Backbone.LocalStorage("events"),
-        model: Event
+        model: Event,
+        comparator: 'name'
     });
 });

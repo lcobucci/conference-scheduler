@@ -3,7 +3,6 @@ define(['backbone', './item'], function(Backbone, Item) {
     
     return Backbone.Collection.extend({
         model: Item,
-        
         comparator: 'href'
     });
 });
