@@ -20,10 +20,6 @@ define(['backbone', 'underscore', 'text!./item_view.html'], function(Backbone, _
             'change:active': 'toogleActive'
         },
         
-        onBeforeRender: function() {
-            this.toogleActive();
-        },
-        
         navigate: function(e) {
             e.preventDefault();
             
