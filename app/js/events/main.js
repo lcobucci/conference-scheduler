@@ -8,8 +8,12 @@ define(
         
         var events = new EventCollection();
         
-        channel.reply('create', function(data) {
-            return events.create(data);
+        channel.reply('persist', function(event) {
+            events.add(event);
+            
+            return event.save().done(function() {
+                renderingChannel.request('modal:hide');
+            });
         });
         
         channel.reply('fetch', function() {
@@ -17,6 +21,8 @@ define(
         });
         
         channel.reply('fetch:one', function(id) {
+            channel.request('fetch');
+            
             return events.get(id);
         });
         
@@ -29,7 +35,19 @@ define(
                     );
                 });
             });
-        });    
+        });
+        
+        channel.reply('render:form', function(event) {
+            channel.request('render:list');
+            
+            require(['events/form/form'], function(Form) {
+                renderingChannel.request(
+                    'modal:show',
+                    event.isNew() ? 'Creating event' : 'Editing #' + event.get('id'),
+                    new Form({model: event})
+                );
+            });
+        });
         
         scheduler.on('before:start', function() {
             scheduler.eventsRouter = new Router();

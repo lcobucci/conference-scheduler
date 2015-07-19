@@ -7,7 +7,7 @@ define(
             childView: Row,
             childViewContainer: 'tbody',
             tagName: 'table',
-            className: 'table table-striped table-hover table-condensed',
+            className: 'table table-striped table-hover',
             template: _.template(template)
         });
     }

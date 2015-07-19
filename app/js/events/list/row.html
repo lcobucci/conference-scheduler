@@ -1,2 +1,5 @@
 <td><%= id %></td>
 <td><%= name %></td>
+<td>
+<%= _.map(days, function(day) { return moment(day).format('DD/MM/YYYY'); }).join(', ') %>
+</td>

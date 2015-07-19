@@ -1,6 +1,6 @@
 define(
-    ['marionette', 'underscore', './grid', 'text!./list.html'], 
-    function(Marionette, _, Grid, template) {
+    ['marionette', 'underscore', './grid', 'events/event', 'text!./list.html'], 
+    function(Marionette, _, Grid, Event, template) {
         'use strict';
         
         return Marionette.LayoutView.extend({
@@ -9,9 +9,19 @@ define(
             regions: {
                 list: '[data-js="event-list"]'
             },
+            ui: {
+                create: '[data-js="create-btn"]'
+            },
+            events: {
+                'click @ui.create': 'openForm'
+            },
             
             onRender: function() {
                 this.showChildView('list', new Grid({collection: this.collection}));
+            },
+            
+            openForm: function() {
+                Marionette.Radio.channel('events').request('render:form', new Event());
             }
         });
     }

@@ -15,15 +15,18 @@ define(['backbone', 'underscore', 'text!./layout.html'], function(Backbone, _, t
         
         regions: {
             menu: '[data-js="menu"]',
-            content: '[data-js="content"]'
+            content: '[data-js="content"]',
+            modal: '[data-js="modal"]'
         },
         
         initialize: function(options) {
             this.menuView = options.menu;
+            this.modalView = options.modal;
         },
         
         onRender: function() {
             this.showChildView('menu', this.menuView);
+            this.showChildView('modal', this.modalView);
         },
         
         changeContent: function(newContent) {
