@@ -1,9 +1,9 @@
 define(
-    ['marionette', 'underscore', 'moment', 'text!./row.html'],
-    function(Marionette, _, moment, template) {
+    ['backbone', 'underscore', 'moment', 'text!./row.html'],
+    function(Backbone, _, moment, template) {
         'use strict';
         
-        return Marionette.ItemView.extend({
+        return Backbone.Marionette.ItemView.extend({
             tagName: 'tr',
             template: _.template(template),
             templateHelpers: {
@@ -24,7 +24,8 @@ define(
             },
             
             edit: function() {
-                Marionette.Radio.channel('events').request('render:form', this.model);
+                Backbone.history.navigate('events/' + this.model.get('slug'));
+                Backbone.Radio.channel('events').request('render:form', this.model);
             },
             
             update: function() {

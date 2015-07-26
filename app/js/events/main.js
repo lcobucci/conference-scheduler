@@ -20,10 +20,10 @@ define(
             return events.fetch();
         });
         
-        channel.reply('fetch:one', function(id) {
+        channel.reply('fetch:one', function(slug) {
             channel.request('fetch');
             
-            return events.get(id);
+            return events.findWhere({slug: slug});
         });
         
         channel.reply('render:list', function() {
@@ -39,6 +39,10 @@ define(
         
         channel.reply('render:form', function(event) {
             channel.request('render:list');
+            
+            if (!event) {
+                return;
+            }
             
             require(['events/form/form'], function(Form) {
                 renderingChannel.request(
