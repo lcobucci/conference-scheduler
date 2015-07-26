@@ -3,7 +3,7 @@ define(['backbone', 'moment'], function(Backbone, moment) {
     
     return Backbone.Model.extend({
         defaults: {
-            id: null,
+            slug: null,
             name: null,
             days: []
         },

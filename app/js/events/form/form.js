@@ -24,7 +24,7 @@ define(
                 'change @ui.endDate': 'setEnd'
             },
             modelEvents: {
-                'change:id': 'updateField'
+                'change:slug': 'updateField'
             },
             
             persist: function(e) {
@@ -36,12 +36,12 @@ define(
             update: function() {
                 var value = this.ui.name.val();
                 
-                this.model.set('id', slugify(value));
+                this.model.set('slug', slugify(value));
                 this.model.set('name', value, {trigger: false});
             },
             
             updateField: function() {
-                this.ui.id.val(this.model.get('id'));
+                this.ui.id.val(this.model.get('slug'));
             },
             
             setStart: function() {

@@ -43,7 +43,7 @@ define(
             require(['events/form/form'], function(Form) {
                 renderingChannel.request(
                     'modal:show',
-                    event.isNew() ? 'Creating event' : 'Editing #' + event.get('id'),
+                    event.isNew() ? 'Creating event' : 'Editing #' + event.get('slug'),
                     new Form({model: event})
                 );
             });
